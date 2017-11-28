@@ -18,7 +18,6 @@ public class Inserir {
             pstmt.setString(3, email);
             pstmt.setString(4, tipo);
             pstmt.executeUpdate();
-        	DB.Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -33,7 +32,6 @@ public class Inserir {
             pstmt.setInt(1, idVendedor);
             pstmt.setDouble(2, precoMinimo);
             pstmt.executeUpdate();
-        	DB.Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -50,7 +48,6 @@ public class Inserir {
             pstmt.setString(3, categoria);
             pstmt.setInt(4, idLote);
             pstmt.executeUpdate();
-        	DB.Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -66,7 +63,6 @@ public class Inserir {
             pstmt.setInt(2, idUsuario);
             pstmt.setDouble(3, valor);
             pstmt.executeUpdate();
-        	DB.Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

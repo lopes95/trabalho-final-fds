@@ -14,6 +14,7 @@ public class DB{
             conn = DriverManager.getConnection(url);            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         } 
 		return conn;
     }
@@ -25,6 +26,7 @@ public class DB{
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 	
@@ -40,9 +42,9 @@ public class DB{
         try (Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-        	Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 	
@@ -57,9 +59,9 @@ public class DB{
         try (Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-        	Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 	
@@ -76,9 +78,9 @@ public class DB{
         try (Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-        	Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 	
@@ -95,13 +97,14 @@ public class DB{
         try (Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-        	Desconectar(conn);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
 	public static void Seed() {
+		Connection conn = DB.Conectar();
 		criarTabelaUsuario();
 		criarTabelaLotes();
 		criarTabelaItens();
@@ -129,5 +132,6 @@ public class DB{
 		inserir.Lances(2, 6, 240.00);
 		inserir.Lances(2, 5, 250.00);
 		inserir.Lances(3, 7, 110.00);
+		DB.Desconectar(conn);
 	}
 }
