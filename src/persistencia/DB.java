@@ -1,5 +1,9 @@
 package persistencia;
 
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -104,6 +108,13 @@ public class DB{
     }
 
 	public static void Seed() {
+		Path path = FileSystems.getDefault().getPath("leilao.db");
+		try {
+			Files.delete(path);
+		} catch (IOException e) {
+			e.getMessage();
+		}
+		
 		Connection conn = DB.Conectar();
 		criarTabelaUsuario();
 		criarTabelaLotes();
